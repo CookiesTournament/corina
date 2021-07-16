@@ -15,7 +15,12 @@ public class Round {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @Column(name = "round_index", nullable = false)
+    private Integer roundIndex;
+
     @OneToMany(orphanRemoval = true)
     @JoinColumn(name = "round_id")
     private List<Match> matches;
+
+
 }
