@@ -44,7 +44,7 @@ public class Tournament {
 
     @ElementCollection
     @CollectionTable(name = "possible_stream_dates", joinColumns = @JoinColumn(name = "tournament_id"))
-    @Column(name = "possibleStreamDate")
+    @Column(name = "possible_stream_date")
     private List<Date> possibleStreamDates;
 
     @Column(name = "stream_key")

@@ -1,6 +1,5 @@
 package org.cookiesturnier.corina.services;
 
-import com.google.common.collect.Lists;
 import org.cookiesturnier.corina.enums.Gamemode;
 import org.cookiesturnier.corina.enums.Map;
 import org.springframework.stereotype.Service;
@@ -9,13 +8,6 @@ import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-
-/**
- * This file was created by VoxCrafter_LP!
- * Date: 18.07.2021
- * Time: 00:34
- * Project: corina
- */
 
 @Service
 public class MapRouletteService {
@@ -30,7 +22,7 @@ public class MapRouletteService {
      * Picks a random map from a certain gamemode
      * @param gamemode Gamemode of the map
      * @param onlyPublicMaps Determines if the wanted map should be publicly accessible
-     * @param teamSize Determines the intended team size of the map
+     * @param teamSize Determines the intended team size(s) of the map
      * @return Randomly selected map. Returns null if no suitable map could be found.
      */
     public Map getRandomMap(Gamemode gamemode, boolean onlyPublicMaps, int... teamSize) {
