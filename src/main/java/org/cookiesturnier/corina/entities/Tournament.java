@@ -42,7 +42,9 @@ public class Tournament {
     @Column(name = "tournament_start_date")
     private Date tournamentStartDate;
 
-    @Column(name = "possible_stream_dates")
+    @ElementCollection
+    @CollectionTable(name = "possible_stream_dates", joinColumns = @JoinColumn(name = "tournament_id"))
+    @Column(name = "possibleStreamDate")
     private List<Date> possibleStreamDates;
 
     @Column(name = "stream_key")
