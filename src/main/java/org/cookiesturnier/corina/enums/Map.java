@@ -1,40 +1,46 @@
 package org.cookiesturnier.corina.enums;
 
+import lombok.Getter;
+import static org.cookiesturnier.corina.enums.Gamemode.*;
+
+@Getter
 public enum Map {
 
-    AIRCRAFT(2, "AirCraft", false),
-    ANNIVERSARY(2, "Anniversary", false),
-    AURUMMEUM(2, "AurumMeum", true),
-    BIGJUNGLE(2, "BigJungle", true),
-    CHRISTMAS(4, "Christmas", false),
-    CURRYWURST(2, "Currywurst", true),
-    EXCALIBUR(4, "Excalibur", true),
-    FABRICA(4, "Fabrica", true),
-    FLOWERY(2, "Flowery", true),
-    FOLIAGE(1, "Foliage", true),
-    HALLOWEEN(4, "Halloween", false),
-    HUGEJUNGLE(4, "HugeJungle", true),
-    INDUSTRY(2, "Industry", true),
-    MARIO(1, "Mario", true),
-    MODERN(2, "Modern", true),
-    SMALLJUNGLE(1, "SmallJungle", true),
-    SPOOKY(4, "Spooky", true),
-    STINGRAY(1, "Stingray", true),
-    VEGETATION(2, "Vegetation", true),
-    VEGETATION2(4, "Vegetation2", true),
-    VILLA(4, "Villa", true),
-    WESTERN(4, "Western", true),
-    WINTER(4, "Winter", false);
-//    ANUBIS(2, "Anubis", true); Coming soon :) ❤ Mirco L
+    AIRCRAFT(2, "AirCraft", false, COOKIES),
+    ANNIVERSARY(2, "Anniversary", false, COOKIES),
+    AURUMMEUM(2, "AurumMeum", true, COOKIES),
+    BIGJUNGLE(2, "BigJungle", true, COOKIES),
+    CHRISTMAS(4, "Christmas", false, COOKIES),
+    CURRYWURST(2, "Currywurst", true, COOKIES),
+    EXCALIBUR(4, "Excalibur", true, COOKIES),
+    FABRICA(4, "Fabrica", true, COOKIES),
+    FLOWERY(2, "Flowery", true, COOKIES),
+    FOLIAGE(1, "Foliage", true, COOKIES),
+    HALLOWEEN(4, "Halloween", false, COOKIES),
+    HUGEJUNGLE(4, "HugeJungle", true, COOKIES),
+    INDUSTRY(2, "Industry", true, COOKIES),
+    MARIO(1, "Mario", true, COOKIES),
+    MODERN(2, "Modern", true, COOKIES),
+    SMALLJUNGLE(1, "SmallJungle", true, COOKIES),
+    SPOOKY(4, "Spooky", true, COOKIES),
+    STINGRAY(1, "Stingray", true, COOKIES),
+    VEGETATION(2, "Vegetation", true, COOKIES),
+    VEGETATION2(4, "Vegetation2", true, COOKIES),
+    VILLA(4, "Villa", true, COOKIES),
+    WESTERN(4, "Western", true, COOKIES),
+    WINTER(4, "Winter", false, COOKIES);
+//    ANUBIS(2, "Anubis", true, COOKIES); Coming soon :) ❤ Mirco L
 
 
-    private int teamSize;
-    private String mapName;
-    private boolean isPublic;
+    private final int teamSize;
+    private final String mapName;
+    private final boolean isPublic;
+    private final Gamemode gamemode;
 
-    Map(int teamSize, String mapName, boolean isPublic) {
+    Map(int teamSize, String mapName, boolean isPublic, Gamemode gamemode) {
         this.teamSize = teamSize;
         this.mapName = mapName;
         this.isPublic = isPublic;
+        this.gamemode = gamemode;
     }
 }
