@@ -26,6 +26,13 @@ public class MapRouletteService {
         this.secureRandom = new SecureRandom();
     }
 
+    /**
+     * Picks a random map from a certain gamemode
+     * @param gamemode Gamemode of the map
+     * @param onlyPublicMaps Determines if the wanted map should be publicly accessible
+     * @param teamSize Determines the intended team size of the map
+     * @return Randomly selected map. Returns null if no suitable map could be found.
+     */
     public Map getRandomMap(Gamemode gamemode, boolean onlyPublicMaps, int... teamSize) {
         final List<Map> availableMaps = Arrays.stream(Map.values())
                 .filter(map -> map.getGamemode().equals(gamemode))
@@ -37,6 +44,7 @@ public class MapRouletteService {
                 })
                 .collect(Collectors.toList());
 
+        if(availableMaps.isEmpty()) return null;
         return availableMaps.get(this.secureRandom.nextInt(availableMaps.size()));
     }
 
