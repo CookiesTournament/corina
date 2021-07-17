@@ -1,6 +1,5 @@
 package org.cookiesturnier.corina.entities;
 
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 

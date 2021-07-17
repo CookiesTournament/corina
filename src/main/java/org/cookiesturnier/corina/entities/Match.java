@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.sql.Date;
 import java.util.List;
 
 @Entity
@@ -24,5 +25,8 @@ public class Match {
             joinColumns = @JoinColumn(name = "MATCH_id"),
             inverseJoinColumns = @JoinColumn(name = "TEAM_id"))
     private List<Team> teams;
+
+    @Column(name = "match_date")
+    private Date matchDate;
 
 }
