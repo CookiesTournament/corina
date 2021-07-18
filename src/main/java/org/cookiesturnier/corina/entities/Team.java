@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.awt.*;
 import java.util.List;
 
 @Entity
@@ -20,5 +21,8 @@ public class Team {
 
     @OneToMany
     private List<Player> players;
+
+    @Column(name = "color")
+    private Color color;
 
 }

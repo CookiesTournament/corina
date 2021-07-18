@@ -7,36 +7,37 @@ import javax.persistence.*;
 import java.sql.Date;
 import java.util.List;
 
+/**
+ * This file was created by VoxCrafter_LP!
+ * Date: 18.07.2021
+ * Time: 18:13
+ * Project: corina
+ */
+
 @Entity
-@Table(name = "matches")
+@Table(name = "sub_matches")
 @Getter
 @Setter
-public class Match {
+public class SubMatch {
 
     @Id
     @Column(name = "id", nullable = false)
     private Long id;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "round_id", nullable = false)
-    private Round round;
+    @JoinColumn(name = "match_id", nullable = false)
+    private Match match;
 
     @ManyToMany
-    @JoinTable(name = "MATCH_TEAM",
-            joinColumns = @JoinColumn(name = "MATCH_id"),
+    @JoinTable(name = "SUBMATCH_TEAM",
+            joinColumns = @JoinColumn(name = "SUBMATCH_id"),
             inverseJoinColumns = @JoinColumn(name = "TEAM_id"))
     private List<Team> teams;
 
     @Column(name = "winner")
     private Team winner;
 
-    @Column(name = "match_date")
-    private Date matchDate;
-
-    @Column(name = "is_multi_match")
-    private boolean isMultiMatch;
-
-    @Column(name = "multi_match_winner_amount")
-    private int multiMatchWinnerAmount;
+    @Column(name = "submatch_date")
+    private Date subMatchDate;
 
 }
