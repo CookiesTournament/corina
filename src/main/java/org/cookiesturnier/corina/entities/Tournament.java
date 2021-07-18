@@ -49,4 +49,11 @@ public class Tournament {
 
     @Column(name = "stream_key")
     private String streamKey;
+
+    @Column(name = "matches_per_stream", nullable = false)
+    private int matchesPerStream;
+
+    @OneToMany(mappedBy = "tournament", orphanRemoval = true)
+    private List<Round> rounds;
+
 }

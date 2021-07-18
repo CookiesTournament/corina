@@ -2,6 +2,7 @@ package org.cookiesturnier.corina.entities;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -14,6 +15,8 @@ import java.util.List;
 public class Match {
 
     @Id
+    @GenericGenerator(name = "match_id_generator", strategy = "org.cookiesturnier.corina.utils.MatchIdGenerator")
+    @GeneratedValue(generator = "match_id_generator")
     @Column(name = "id", nullable = false)
     private Long id;
 
@@ -27,16 +30,25 @@ public class Match {
             inverseJoinColumns = @JoinColumn(name = "TEAM_id"))
     private List<Team> teams;
 
-    @Column(name = "winner")
+    @ManyToOne
+    @JoinColumn(name = "winner_id")
     private Team winner;
 
     @Column(name = "match_date")
     private Date matchDate;
 
-    @Column(name = "is_multi_match")
-    private boolean isMultiMatch;
-
     @Column(name = "multi_match_winner_amount")
     private int multiMatchWinnerAmount;
+
+    @ManyToOne
+    @JoinColumn(name = "parent_match_id")
+    private Match parentMatch;
+
+    @OneToMany(mappedBy = "parentMatch", orphanRemoval = true)
+    private List<Match> matches;
+
+    public boolean isMultiMatch() {
+        return this.matches.size() > 0;
+    }
 
 }

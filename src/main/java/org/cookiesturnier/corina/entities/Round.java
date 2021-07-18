@@ -22,5 +22,8 @@ public class Round {
     @JoinColumn(name = "round_id")
     private List<Match> matches;
 
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "tournament_id", nullable = false)
+    private Tournament tournament;
 
 }
